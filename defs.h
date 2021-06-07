@@ -1,11 +1,26 @@
 #ifndef defsH
 #define defsH
 
-typedef unsigned long long uLL;
+#include "stdlib.h"
+
+#define debug
+#ifndef debug
+#else
+#define assert(n) \
+if(!(n)) { \
+    printf("%s - Failed", #n); \
+    printf("On %s ", __DATE__); \
+    printf("At %s ", __TIME__); \
+    printf("In file ", __FILE__); \
+    printf("At line %d\n", __LINE__); \
+    exit(1); }
+#endif
 
 #define name "Rising Sun"
-#define boardSquareNum 120
 
+typedef unsigned long long uLL;
+
+#define boardSquareNum 120
 #define maxGameMoves 2048
 
 /* Pieces for both colors */
@@ -28,7 +43,7 @@ enum {
     a5 = 61, b5, c5, d5, e5, f5, g5, h5,
     a6 = 71, b6, c6, d6, e6, f6, g6, h6,
     a7 = 81, b7, c7, d7, e7, f7, g7, h7,
-    a8 = 91, b8, c8, d8, e8, f8, g8, h8, noSquare
+    a8 = 91, b8, c8, d8, e8, f8, g8, h8, noSquare 
 };
 
 enum { FALSE, TRUE };
@@ -67,6 +82,9 @@ typedef struct {
     int minorPieces[3];
 
     strUndo history[maxGameMoves];
+
+    // Piece list
+    int pList[13][10]; 
 } strBoard;
 
 /* Macros */
