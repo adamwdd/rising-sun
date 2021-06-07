@@ -1,7 +1,7 @@
 #ifndef defsH
 #define defsH
 
-#include "stdlib.h"
+#include <stdlib.h>
 
 #define debug
 #ifndef debug
@@ -23,18 +23,18 @@ typedef unsigned long long uLL;
 #define boardSquareNum 120
 #define maxGameMoves 2048
 
-/* Pieces for both colors */
+// Pieces for both colors
 enum { empty, wP, wN, wB, wR, wQ, wK, bP, bN, bB, bQ, bK };
 
-/* Rank and file definition */
+// Rank and file definition
 enum { fileA, fileB, fileC, fileD, fileE, fileF, fileG, fileH, fileNone };
 enum { rank1, rank2, rank3, rank4, rank5, rank6, rank7, rank8, rankNone };
 
 
-/* Side colors */
+// Side colors
 enum { white, black, both };
 
-/* Board square defintion */
+// Board square defintion
 enum {
     a1 = 21, b1, c1, d1, e1, f1, g1, h1,
     a2 = 31, b2, c2, d2, e2, f2, g2, h2,
@@ -48,7 +48,7 @@ enum {
 
 enum { FALSE, TRUE };
 
-/* Castling definition */
+// Castling definition
 enum { wKCastle = 1, wQCastle = 2, bKCastle = 4, bQCastle = 8 };
 
 typedef struct {
@@ -87,12 +87,12 @@ typedef struct {
     int pList[13][10]; 
 } strBoard;
 
-/* Macros */
+// Macros 
 #define fileRankToSquare(f, r) ( (21 + (f)  ) + ( (r) * 10 ) )
-/* Globals */
+// Globals
 extern int convert120To64[boardSquareNum];
 extern int convert64To120[64];
 
-/* Functions */
+// Functions
 extern void allInit();
 #endif
