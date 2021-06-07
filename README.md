@@ -1,2 +1,2 @@
-![redwave](media/redwave.svg)
+![redwave](media/redwave.png)
 
